@@ -256,7 +256,6 @@ client.on("message", message => {
       .setDescription(`
 	      اوامر ادارة السيرفر
 ❖=move @user ~  لسحب الشخص الى روومك
-❖=bc ~ رسالة جماعية الى كل اعضاء السيرفر
 ❖=role @user <rank> ~ لأعطاء رتبة لعضو معين
 ❖=roleremove @user <rank> ~ لازالة الرتبة من شخص معين
 ❖=role all <rank> ~ لأعطاء رتبة للجميع
@@ -354,19 +353,6 @@ client.on('guildDelete', guild => {
 client.channels.get("406877114936197120").sendEmbed(embed)
 });
  
-
-client.on('message', message => {
-            if(!message.channel.guild) return;
-let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('LG=bcall')){
- if (message.author.id !== '406877114936197120') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
- if(!message.author.id === '406877114936197120') return;
-message.channel.sendMessage('جار ارسال الرسالة |✅')
-client.users.forEach(m =>{
-m.sendMessage(args)
-})
-}
-});
 
 client.on('message', async msg => { 
 	if (msg.author.bot) return undefined;
